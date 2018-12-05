@@ -12,11 +12,11 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.post('/api/teste', function (req, res) {
     var enviado = "";
 
-    if (req.body.bar == 'undefined')
+    if (typeof req.body.bar !== 'undefined')
     {
         enviado = req.body.bar;
     }
-    else
+    else if (typeof req.body.Bar !== 'undefined')
     {
         enviado = req.body.Bar;
     }
@@ -25,7 +25,7 @@ app.post('/api/teste', function (req, res) {
 });
 
 app.get('/', function(req, res) {
-    res.send('api')
+    res.send('api v4')
   });
 
 // listen ===========================================================
